@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<!--contiene los fragmento de inicio o sea: filtros de busqueda y los cards de la informacion de cada local -->
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+    <head th:replace="~{sinCuenta/plantilla :: head}">
+        <title>EatAway</title>
+    </head>
+    <body>
+        
+        <!-- Esto contiene la seccion lateral izquierda donde estan los filtros de busqueda -->
+        <section th:fragment="seccionFiltros" >
+            <aside id="barralateral">
+                <!-- Campo de texto para buscar (filtro) -->
+                <input type="text" placeholder="Buscar..." style="border-radius: 10px; padding: 2px; width: 100%;">
+                <br>
+                <!-- Filtro 1 -->
+                <h6>[[#{filtro.tipo}]]</h6>                
+                <label>
+                    <input type="checkbox" name="tipoEstablecimiento" value="bares"> [[#{filtro.bares}]]
+                </label>
+                <label>
+                    <input type="checkbox" name="tipoEstablecimiento" value="restaurantes"> [[#{filtro.restaurante}]]
+                </label>
+                <br>
+                 <!-- Filtro 2 -->
+                <h6>[[#{filtro.precio}]]</h6>                
+                <label>
+                    <input type="checkbox" name="precio" value="bares"> [[#{filtro.barato}]]
+                </label>
+                <label>
+                    <input type="checkbox" name="precio" value="restaurantes"> [[#{filtro.gamaMedia}]]
+                </label>
+                <label>
+                    <input type="checkbox" name="precio" value="restaurantes"> [[#{filtro.buenaComida}]]
+                </label>
+                <br>
+                <!-- Filtro 3 -->
+                <h6>[[#{filtro.aconsejable}]]</h6>                
+                <label>
+                    <input type="checkbox" name="aconsejablePara" value="bares"> [[#{filtro.familias}]]
+                </label>
+                <label>
+                    <input type="checkbox" name="aconsejablePara" value="restaurantes"> [[#{filtro.grupos}]]
+                </label>
+                <label>
+                    <input type="checkbox" name="aconsejablePara" value="restaurantes"> [[#{filtro.romantico}]]
+                </label>
+                <label>
+                    <input type="checkbox" name="aconsejablePara" value="restaurantes"> [[#{filtro.ambiente}]]
+                </label>
+                <br>
+                <!-- Filtro 4 -->
+                <h6>[[#{filtro.caracteristica}]]</h6>                
+                <label>
+                    <input type="checkbox" name="caracteristica" value="bares"> [[#{filtro.perros}]]
+                </label>
+                <label>
+                    <input type="checkbox" name="caracteristica" value="restaurantes"> [[#{filtro.parking}]]
+                </label>
+                <label>
+                    <input type="checkbox" name="caracteristica" value="restaurantes"> [[#{filtro.costa}]]
+                </label>
+            </aside>            
+        </section>
+        
+        <!-- Esto contiene la seccion lateral derecha donde estan los cards con la info de los locales -->
+        <section th:fragment="cardsLocal" >
+            <section id="contenido">  
+               <div class="parent"> <!-- parent es un estilo en la estilos -->
+                   <div class="card rounded" style="width: 18rem;">
+                       <img src="imagenes/logo.jpg" class="card-img-top" alt="...">
+                           <div class="card-body">
+                               <h3 class="card-title">TITULO</h1>
+                               <h5 class="card-subtitle mb-2">SUBTITULO</h2>
+                               <h6 class="card-subtitle text-muted">SUBTITULO</h3>
+                           </div>
+                   </div>                                     
+                </div>
+            </section>
+        </section>
+        
+    </body>
+</html>

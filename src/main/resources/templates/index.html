@@ -5,8 +5,12 @@
     </head>
     <body>        
         <section th:replace="sinCuenta/plantilla :: menuSuperiorInicio"/>
+        
         <section th:replace="sinCuenta/plantilla :: hazteUnaCuenta"/>        
-        <section th:replace="sinCuenta/plantilla :: iniciaCuenta"/>        
+        <section th:replace="sinCuenta/plantilla :: iniciaCuenta"/>
+        <section th:replace="sinCuenta/fragmentosInicio :: seccionFiltros"/>
+        <section th:replace="sinCuenta/fragmentosInicio :: cardsLocal"/>
+        
         <footer th:replace="sinCuenta/plantilla :: footer"/>
     </body>
 </html>
