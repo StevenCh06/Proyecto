@@ -1,13 +1,35 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.Proyecto.serviceImpl;
 
-/**
- *
- * @author marlo
- */
-public class ResenaServiceImpl {
+import com.Proyecto.dao.ResenaDao;
+import com.Proyecto.domain.Resena;
+import com.Proyecto.service.ResenaService;
+import com.Proyecto.service.ReservaService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
+
+
+public class ResenaServiceImpl implements ResenaService {
+    @Autowired
+    private ResenaDao resenaDao;
     
+    @Override
+    public Resena getResena(Resena resena) {
+       return resenaDao.findById(resena.getIdLocal()).orElse(null);
+    }
+
+    @Override
+    @Transactional
+    public void save(Resena resena) {
+        resenaDao.save(resena);
+    }
+
+    @Override
+    @Transactional
+    public void delete(Resena resena) {
+        resenaDao.delete(resena);
+    }
+
+
 }
+
