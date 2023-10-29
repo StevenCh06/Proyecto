@@ -6,9 +6,10 @@ import com.Proyecto.domain.Evento;
 import com.Proyecto.service.EventoService;
 import com.Proyecto.service.EventoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-
+@Service
 public class EventoServiceImpl implements EventoService{
   @Autowired
     private EventoDao eventoDao;

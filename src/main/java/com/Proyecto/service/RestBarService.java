@@ -7,9 +7,11 @@ import java.util.List;
 
 public interface RestBarService {
    
-    public RestBar getRestBar(RestBar arbol);
+    public List<RestBar> getRestBar();
     
-    public void save(RestBar arbol);
+    public RestBar getRestBar(RestBar rest);
     
-    public void delete(RestBar arbol);
+    public void save(RestBar rest);
+    
+    public void delete(RestBar rest);
 }

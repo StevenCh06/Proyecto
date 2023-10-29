@@ -25,6 +25,7 @@ public class RestBar implements Serializable {
     private String horario;
     private String correo;
     private String foto;
+    private String tipo;
     private String precio;
     private String informacion;
     private String recomendaciones;
@@ -32,17 +33,20 @@ public class RestBar implements Serializable {
     public RestBar() {
     }
 
-    public RestBar(String nombre, String ubicacion, Long telefono, String horario, String correo, String foto, String precio, String informacion, String recomendaciones) {
+    public RestBar(String nombre, String ubicacion, Long telefono, String horario, String correo, String foto, String tipo, String precio, String informacion, String recomendaciones) {
         this.nombre = nombre;
         this.ubicacion = ubicacion;
         this.telefono = telefono;
         this.horario = horario;
         this.correo = correo;
         this.foto = foto;
+        this.tipo = tipo;
         this.precio = precio;
         this.informacion = informacion;
         this.recomendaciones = recomendaciones;
     }
+
+    
     
     
 }

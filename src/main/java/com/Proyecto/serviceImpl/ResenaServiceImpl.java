@@ -6,9 +6,10 @@ import com.Proyecto.domain.Resena;
 import com.Proyecto.service.ResenaService;
 import com.Proyecto.service.ReservaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-
+@Service
 public class ResenaServiceImpl implements ResenaService {
     @Autowired
     private ResenaDao resenaDao;

@@ -67,20 +67,24 @@
         </section>
         
         <!-- Esto contiene la seccion lateral derecha donde estan los cards con la info de los locales -->
-        <section th:fragment="cardsLocal" >
-            <section id="contenido">  
-               <div class="parent"> <!-- parent es un estilo en la estilos -->
-                   <div class="card rounded" style="width: 18rem;">
-                       <img src="imagenes/logo.jpg" class="card-img-top" alt="...">
-                           <div class="card-body">
-                               <h3 class="card-title">TITULO</h1>
-                               <h5 class="card-subtitle mb-2">SUBTITULO</h2>
-                               <h6 class="card-subtitle text-muted">SUBTITULO</h3>
-                           </div>
-                   </div>                                     
+        <section th:fragment="cardsLocal">
+            <section id="contenido">
+                <div class="row">
+                    <div th:each="restbar : ${restbares}" class="col-md-4 mb-3">
+                        <div class="card rounded" style="width: 18rem;">
+                            <img src="imagenes/logo.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title" th:text="${restbar.nombre}"></h5>
+                                    <p class="card-text"><span th:text="${restbar.ubicacion}"></span></p>
+                                    <p class="card-text"><span th:text="${restbar.tipo}"></span></p>
+                                    <p class="card-text"><span th:text="${restbar.precio}"></span></p>
+                                </div>
+                        </div>
+                    </div>
                 </div>
             </section>
         </section>
+
         
     </body>
 </html>
