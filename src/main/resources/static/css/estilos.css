@@ -63,6 +63,12 @@ body {
     border: 1px solid black; /* Borde negro en hover */
 }
 
+.card-image {
+    max-height: 200px; /* altura máxima para las imágenes */
+    width: 100%; /* ocupa el ancho completo del card */
+    object-fit: cover;
+}
+
 
 
 /*++++++++++++++++++++++++*/
