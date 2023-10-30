@@ -21,17 +21,17 @@ body {
 
 #contenido{
     position: absolute;
-    height: 300%;
+    height: 155%;
     top: 30%;
     left: 25%;    
-    width: 75%;
+    width: 73%;
     background-color: white;
     padding: 10px;
 }
 
 #piePagina{
     position: absolute  ;
-    top: 200%;
+    top: 170%;
     height: 9%;
     bottom: 0;
     left: 0;
@@ -67,8 +67,15 @@ body {
     max-height: 200px; /* altura máxima para las imágenes */
     width: 100%; /* ocupa el ancho completo del card */
     object-fit: cover;
+    border-top-left-radius: 5px; 
+    border-top-right-radius: 5px;
 }
 
+.nombreFuente{
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 35px;
+    color: black;
+}
 
 
 /*++++++++++++++++++++++++*/

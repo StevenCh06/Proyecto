@@ -28,13 +28,13 @@ public class Usuario implements Serializable {
     private String correo;
     private String contrasena;
     private String presentacion;
-    private String fotoPersil;
+    private String fotoPerfil;
     private boolean activo;
 
     public Usuario() {
     }
 
-    public Usuario(String nombre, String priApellido, String segApellido, String nomUsuario, String direccion, String correo, String contrasena, String presentacion, String fotoPersil, boolean activo) {
+    public Usuario(String nombre, String priApellido, String segApellido, String nomUsuario, String direccion, String correo, String contrasena, String presentacion, String fotoPerfil, boolean activo) {
         this.nombre = nombre;
         this.priApellido = priApellido;
         this.segApellido = segApellido;
@@ -43,7 +43,7 @@ public class Usuario implements Serializable {
         this.correo = correo;
         this.contrasena = contrasena;
         this.presentacion = presentacion;
-        this.fotoPersil = fotoPersil;
+        this.fotoPerfil = fotoPerfil;
         this.activo = activo;
     }
     

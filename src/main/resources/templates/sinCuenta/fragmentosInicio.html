@@ -71,13 +71,12 @@
             <section id="contenido">
                 <div class="row">
                     <div th:each="restbar : ${restbares}" class="col-md-4 mb-3">
-                        <div class="card rounded" style="width: 18rem;">
+                        <div class="card rounded" style="max-width: 18rem;">
                             <img id="blah" th:src="@{${restbar.foto}}" alt="your image" class="card-image"/>
                                 <div class="card-body">
-                                    <h5 class="card-title" th:text="${restbar.nombre}"></h5>
-                                    <p class="card-text"><span th:text="${restbar.ubicacion}"></span></p>
-                                    <p class="card-text"><span th:text="${restbar.tipo}"></span></p>
-                                    <p class="card-text"><span th:text="${restbar.precio}"></span></p>
+                                    <h5 class="card-title nombreFuente" th:text="${restbar.nombre}"></h5>
+                                    <p class="card-text my-1" style="font-style: italic; opacity: 0.7;"><span th:text="${restbar.tipo}"></span></p>
+                                    <p class="card-text my-1" style="font-style: italic; opacity: 0.7;"><span th:text="${restbar.ubicacion}"></span></p>                                    
                                 </div>
                         </div>
                     </div>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<!--contiene los cards de la informacion de cada local -->
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+    <head th:replace="~{sinCuenta/plantilla :: head}">
+        <title>EatAway</title>
+    </head>
+    <body>
+
+        <!-- Esto contiene la seccion lateral derecha donde estan los cards con la info de los locales -->
+        <section th:fragment="listadoRestBar">
+            <section id="contenido">
+                <div class="row">
+                    <div th:each="restbar : ${restBares}" class="col-md-4 mb-3">
+                        <div class="card rounded mb-4" style="max-width: 18rem;">
+                            <img id="blah" th:src="@{${restbar.foto}}" alt="your image" class="card-image" />
+                            <div class="card-body">
+                                <h5 class="card-title nombreFuente" th:text="${restbar.nombre}"></h5>
+                                <p class="card-text my-1" style="font-style: italic; opacity: 0.7;">
+                                    <span th:text="${restbar.tipo}"></span>
+                                </p>
+                                <p class="card-text my-1" style="font-style: italic; opacity: 0.7;">
+                                    <span th:text="${restbar.ubicacion}"></span>
+                                </p>
+                            </div>
+                            <div class="text-center" style="position: absolute; bottom: -25px; left: 50%; transform: translateX(-50%);">
+                                <a th:href="@{/detalle/}+${restbar.idLocal}" class="btn" style="background-color: #000000; color: white; border-radius: 50px;">
+                                    [[#{card.verMas}]]
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>            
+        </section>
+        
+        <section th:fragment="detalleLocal">
+            <div class="row">
+                <div id="details">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="mb-3">                                    
+                                            <p th:text="${restbar.nombre}"></p>
+                                        </div>
+                                        <div class="mb-3">                                    
+                                            <p th:text="${restbar.ubicacion}"></p>
+                                        </div>
+                                        <div class="mb-3">                                    
+                                            <p th:text="${restbar.telefono}"></p>
+                                        </div>
+                                        <div class="mb-3">                                    
+                                            <p th:text="${restbar.horario}"></p>
+                                        </div>
+                                        <div class="mb-3">                                    
+                                            <p th:text="${restbar.correo}"></p>
+                                        </div>
+                                        <!-- Agrega más campos de información aquí -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    </body>
+</html>

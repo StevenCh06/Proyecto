@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+    <head th:replace="~{sinCuenta/plantilla :: head}">
+        <title>EatAway</title>
+    </head>
+    <body>
+        <section th:fragment="menuSuperiorInicio" class="header">
+            <section class="navbar navbar-expand-sm navbar-light bg-white p-0">
+                <div class="container">
+                    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                        <ul></ul>
+                        <ul class="navbar-nav ml-auto mr-0"> 
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Lang</a>
+                                <ul class="dropdown-menu dropdown-menu-dark">
+                                    <li><a class="dropdown-item" th:href="@{/(lang=es)}">ES</a></li>
+                                    <li><a class="dropdown-item" th:href="@{/(lang=en)}">EN</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>            
+            <nav class="navbar navbar-expand-sm py-2 bg-white menu-superior">
+                <div class="container">
+                    <a th:href="@{/guardar}" class="navbar-brand">
+                        <h1 class="titulologo">
+                            <img src="imagenes/logo.jpg" alt="Logo de EatAway" style="width: 60px; height: 60px; margin-right: 10px; border-radius: 50%;">
+                                [[#{plantilla.nombreAplicacion}]]
+                        </h1>
+                    </a>
+                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                        <ul></ul>
+                        <ul class="navbar-nav">
+                            <button type="button" class="btn" style="background-color: #F26535 ; color: white; border-radius: 25px;"
+                                    data-bs-toggle="modal" data-bs-target="#">
+                                    [[#{sesion.opcionesTransporte}]]
+                            </button>
+                            <a>ㅤ</a>
+                            <button type="button" class="btn" style="background-color: gray; color: white; border-radius: 25px;"
+                                    data-bs-toggle="modal" data-bs-target="#">
+                                    [[#{sesion.eventos}]]
+                            </button>
+                            <a>ㅤ</a>
+                            <div class="dropdown">
+                                <button class="btn btn-secondary" style="background-color: gray; color: white; border-radius: 25px;" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fas fa-bars"></i> <!-- Icono de menú hamburguesa de Font Awesome -->
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end mt-3" aria-labelledby="dropdownMenu2">
+                                    <li><button class="dropdown-item" type="button">[[#{dropdown.reservas}]]</button></li>
+                                    <li><button class="dropdown-item" type="button">[[#{dropdown.resenas}]]</button></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><button class="dropdown-item" type="button">[[#{dropdown.cuenta}]]</button></li>
+                                    <li><button class="dropdown-item" type="button">[[#{dropdown.ayuda}]]</button></li>
+                                    <li><button class="dropdown-item" type="button">[[#{dropdown.cerrar}]]</button></li>
+                                </ul>
+                            </div>
+                        </ul>                     
+                    </div>
+                </div>
+            </nav>
+        </section>
+    </body>
+</html>

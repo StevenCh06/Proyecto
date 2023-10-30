@@ -11,9 +11,9 @@ public interface UsuarioService {
     
     public List<Usuario> getUsuarioesInactivos(boolean inactivos);
  
-    public Usuario getUsuario(Usuario arbol);
+    public Usuario getUsuario(Usuario usuario);
     
-    public void save(Usuario arbol);
+    public void save(Usuario usuario);
     
-    public void delete(Usuario arbol);
+    public void delete(Usuario usuario);
 }
