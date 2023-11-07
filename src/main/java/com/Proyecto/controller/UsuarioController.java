@@ -32,7 +32,7 @@ public class UsuarioController {
         // Guarda el usuario independientemente de si se proporcionó una imagen.
         usuarioService.save(usuario);
 
-        return "sesionIniciada";
+        return "redirect:/usuario/listado";
     }
 
     

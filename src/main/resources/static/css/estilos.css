@@ -77,6 +77,28 @@ body {
     color: black;
 }
 
+.contenedor {
+  display: grid;
+  grid-template-columns: fr 2fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "derecha izquierda";
+}
+
+.derecha {
+  grid-area: derecha;    
+  margin-left: 90px;
+  margin-top: 60px;
+}
+
+.izquierda {
+  grid-area: izquierda;
+  margin-top: 25%;
+  margin-left: 30%;
+}
+
+
 
 /*++++++++++++++++++++++++*/
 /*para los elemntos de tipo id (especificos)*/

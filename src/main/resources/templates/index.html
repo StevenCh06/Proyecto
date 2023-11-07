@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
-    <head th:replace="sinCuenta/plantilla :: head">        
+    <head th:replace="inicio/plantilla :: head">        
     </head>
     <body>        
-        <section th:replace="sinCuenta/plantilla :: menuSuperiorInicio"/>
+        <section th:replace="inicio/plantilla :: menuSuperiorInicio"/>
         
-        <section th:replace="sinCuenta/plantilla :: hazteUnaCuenta"/>        
-        <section th:replace="sinCuenta/plantilla :: iniciaCuenta"/>
-        <section th:replace="sinCuenta/fragmentosInicio :: seccionFiltros"/>
-        <section th:replace="sinCuenta/fragmentosInicio :: cardsLocal"/>
+        <section th:replace="inicio/plantilla :: hazteUnaCuenta"/>        
+        <section th:replace="inicio/plantilla :: iniciaCuenta"/>
+        <section th:replace="inicio/fragmentosInicio :: seccionFiltros"/>
+        <section th:replace="inicio/fragmentosInicio :: cardsLocal"/>
         
-        <footer th:replace="sinCuenta/plantilla :: footer"/>
+        <footer th:replace="inicio/plantilla :: footer"/>
     </body>
 </html>

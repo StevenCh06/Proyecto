@@ -16,7 +16,7 @@ public class RestBarController {
     @Autowired
     private RestBarService restbarService;     
     
-    @GetMapping("/")
+    @GetMapping("/login")
     public String inicio(Model model) {
         List<RestBar> listado = restbarService.getRestBar();
 
@@ -25,19 +25,10 @@ public class RestBarController {
         return "index";
     }
     
-    @GetMapping("/guardar")
-    public String sesion(Model model) {
-        List<RestBar> listadoRestBar = restbarService.getRestBar();
-        
-        model.addAttribute("restBares", listadoRestBar);
-        
-        return "sesionIniciada";
-    }
-    
-    @GetMapping("/detalle/{idLocal}")
+    @GetMapping("locales/detalle/{idLocal}")
     public String restbarDetalle(RestBar restbar, Model model) {
         restbar = restbarService.getRestBar(restbar);
         model.addAttribute("restbar", restbar);
-        return "detalle";
+        return "/locales/detalle";
     }
 }
