@@ -4,7 +4,7 @@ package com.Proyecto.serviceImpl;
 import com.Proyecto.dao.ResenaDao;
 import com.Proyecto.domain.Resena;
 import com.Proyecto.service.ResenaService;
-import com.Proyecto.service.ReservaService;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,8 +15,16 @@ public class ResenaServiceImpl implements ResenaService {
     private ResenaDao resenaDao;
     
     @Override
+    @Transactional(readOnly = true)
+    public List<Resena> getResenas() {
+        List<Resena> resenas = resenaDao.findAll();
+        
+        return resenas;
+    }
+    
+    @Override
     public Resena getResena(Resena resena) {
-       return resenaDao.findById(resena.getIdLocal()).orElse(null);
+       return resenaDao.findById(resena.getIdResena()).orElse(null);
     }
 
     @Override
@@ -30,7 +38,6 @@ public class ResenaServiceImpl implements ResenaService {
     public void delete(Resena resena) {
         resenaDao.delete(resena);
     }
-
-
+    
 }
 

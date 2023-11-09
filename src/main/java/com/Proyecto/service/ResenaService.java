@@ -7,9 +7,13 @@ import java.util.List;
 
 public interface ResenaService {
    
-    public Resena getResena(Resena arbol);
+    public List<Resena> getResenas();    
     
-    public void save(Resena arbol);
+    public Resena getResena(Resena resena);
     
-    public void delete(Resena arbol);
+    public void save(Resena resena);
+    
+    public void delete(Resena resena);
+    
+
 }

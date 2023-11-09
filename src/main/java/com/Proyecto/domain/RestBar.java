@@ -5,8 +5,11 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import java.io.Serializable;
+import java.util.List;
 import lombok.Data;
 
 @Data
@@ -30,6 +33,10 @@ public class RestBar implements Serializable {
     private String informacion;
     private String recomendaciones;
     
+    @OneToMany
+    @JoinColumn(name = "id_local", insertable = false, updatable = false)
+    List<Resena> resenas;
+    
     public RestBar() {
     }
 
@@ -46,8 +53,5 @@ public class RestBar implements Serializable {
         this.recomendaciones = recomendaciones;
     }
 
-    
-    
-    
 }
 

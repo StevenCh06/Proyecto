@@ -6,6 +6,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import java.io.Serializable;
 import lombok.Data;
@@ -18,20 +20,24 @@ public class Resena implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "resena")
+    @Column(name = "id_resena")
     private Long idResena;
-    private Long idLocal;
-    private String nombreCliente;
     private int calificacion;
     private String comentario;
+    
+    @ManyToOne
+    @JoinColumn(name = "id_local")
+    private RestBar restBar;
+    
+    @ManyToOne
+    @JoinColumn(name = "id_usuario")
+    private Usuario usuario;
     
     public Resena (){
         
     }
 
-    public Resena(Long idLocal, String nombreCliente, int calificacion, String comentario) {
-        this.idLocal = idLocal;
-        this.nombreCliente = nombreCliente;
+    public Resena(int calificacion, String comentario) {
         this.calificacion = calificacion;
         this.comentario = comentario;
     }

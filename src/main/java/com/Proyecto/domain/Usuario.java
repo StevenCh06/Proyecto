@@ -5,8 +5,11 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import java.io.Serializable;
+import java.util.List;
 import lombok.Data;
 
 @Data
@@ -31,6 +34,14 @@ public class Usuario implements Serializable {
     private String fotoPerfil;
     private boolean activo;
 
+    @OneToMany
+    @JoinColumn(name = "id_usuario", insertable = false, updatable = false)
+    List<Reserva> reservas;
+    
+    @OneToMany
+    @JoinColumn(name = "id_usuario", insertable = false, updatable = false)
+    List<Resena> resenas;
+    
     public Usuario() {
     }
 
