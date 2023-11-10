@@ -87,12 +87,26 @@
         
         <!--fragmento de la parte de reseñas de los usuarios-->
         <section th:fragment="contenidoResena">
-            <div class="burbuja">
-<!--                <div th:each="resena : ${resenas}">
-                    
-                </div>-->
-            </div>
+            <div th:each="resena : ${listadoResena}" class="">
+                <div class="comment">
+                    <div class="comment-autor">
+                        <!-- Acceder al usuario de la reseña y mostrar el nombre y la foto -->
+                        <div th:with="usuarioResena=${resena.usuario}">
+                            <img th:src="${usuarioResena.fotoPerfil}" alt="foto" width="50" height="50" style="border-radius: 50%;"/>
+                            <p th:text="${usuarioResena.nombre} + ' ' + ${usuarioResena.priApellido}"></p>
+                        </div>
+                    </div>
+                    <div class="comment-texto">
+                        <p th:text="${resena.comentario}"></p>
+                        <p style="display: inline-block; margin-right: 10px;">[[#{resena.calificacion}]]</p>
+                        <p style="display: inline-block;" th:text="${resena.calificacion} + ' estrellas'"></p>
+                    </div>
+                </div>
+            </div>            
         </section>
+
+
+
         
         <!-- Fragmento para agregar reseña, es la ventana modal -->
         <section th:fragment="agregarResena">

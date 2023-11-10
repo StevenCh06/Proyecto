@@ -3,6 +3,7 @@ package com.Proyecto.serviceImpl;
 
 import com.Proyecto.dao.ResenaDao;
 import com.Proyecto.domain.Resena;
+import com.Proyecto.domain.RestBar;
 import com.Proyecto.service.ResenaService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +39,12 @@ public class ResenaServiceImpl implements ResenaService {
     public void delete(Resena resena) {
         resenaDao.delete(resena);
     }
+    
+    @Override
+    public List<Resena> getResenasByRestBar(RestBar restbar) {
+        return resenaDao.findByRestBar(restbar.getIdLocal());
+    }
+
     
 }
 

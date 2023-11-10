@@ -1,5 +1,6 @@
 package com.Proyecto.controller;
 
+import com.Proyecto.domain.Resena;
 import com.Proyecto.service.RestBarService;
 import com.Proyecto.service.ResenaService;
 import com.Proyecto.domain.RestBar;
@@ -40,14 +41,17 @@ public class RestBarController {
     }
 
     @GetMapping("/detalle/{idLocal}")
-    public String restbarDetalle(RestBar restbar, Model model) {      
+    public String restbarDetalle(RestBar restbar, Model model) {    
         
-        restbar = restbarService.getRestBar(restbar);  
+        restbar = restbarService.getRestBar(restbar);
+        
+        List<Resena> resenas = resenaService.getResenasByRestBar(restbar);
         
         var numresenas = restbarService.getRestBar(restbar).getResenas();
         
         model.addAttribute("restbar", restbar);
-        model.addAttribute("totalResenas", numresenas.size());  
+        model.addAttribute("totalResenas", numresenas.size());
+        model.addAttribute("listadoResena", resenas);
         
         return "/locales/detalle";
     }
