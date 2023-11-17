@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+    <head th:replace="~{sinCuenta/plantilla :: head}">
+        <title>EatAway</title>
+    </head>
+    <body>                    
+            <section th:fragment="detalleEventos">
+            <div id="details" class="contenedor">
+                <div class="col derecha"> 
+                    <div class="mb-3">
+                        <p class="nombreFuente" th:text="#{evento.titulo}"></p>
+                    </div>
+                    <hr class="my-4">
+                    <div th:each="evento, iterStat : ${eventos}" class="evento-container">
+                        <div class="imagen-evento">
+                            <img th:src="${evento.foto}" alt="foto" style="border-radius: 5%;" />
+                        </div>
+                        <div class="detalles-evento">
+                            <h3 th:text="${evento.tituloEvento}"> </h3>
+                            <p th:text="${evento.ubicacion}"></p>
+                            <div class="detalles-adicionales">
+                                <p th:text="${evento.hora}"></p>
+                                <p th:text="${evento.descripcion}"></p>
+                                <p th:text="${evento.artista}"></p>
+                                <p th:text="${evento.restriccion}"></p>
+                            </div>
+                            <!-- Botón de Invitar -->
+                            <div class=" ml-auto"> <!-- Tercera columna para el botón de invitar -->
+                                <button type="button" class="btn" style="background-color: black; color: white; border-radius: 25px; width: 200px;" th:text="#{evento.invitar}"></button>
+                            </div>
+                            <hr class="my-4">
+                        </div>
+                    </div>
+                </div>
+                <div class="col izquierda">
+                    <p style="text-aling: center;">ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </body>
+</html>

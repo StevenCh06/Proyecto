@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<!-- contiene los fragmentos de la vista que muestra la informacion detallada de los locales -->
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+    <head th:replace="~{sinCuenta/plantilla :: head}">
+        <title>EatAway</title>
+    </head>
+    <body>                    
+        
+        <section th:fragment="iframeTransporte">
+            <div id="details" class="contenedor">
+                
+                <article>
+               
+                <iframe src="https://moovitapp.com/san_jose-2967/poi/es" width="1515" height="1075">
+                </iframe>
+               
+            </article>
+                
+            </div>
+        </section>        
+        
+       
+        
+           
+
+    </body>
+</html>

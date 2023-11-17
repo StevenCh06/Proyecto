@@ -18,7 +18,7 @@ public class Evento implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_almacenarEvento")
+    @Column(name = "id_evento")
     private Long idEvento;
     private String tituloEvento;
     private String artista;

@@ -11,7 +11,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class RestBarServiceImpl implements RestBarService {
-     @Autowired
+    
+    @Autowired
     private RestBarDao restbarDao;
      
     @Override

@@ -4,12 +4,13 @@ package com.Proyecto.service;
 import com.Proyecto.domain.Evento;
 import java.util.List;
 
-
 public interface EventoService {
  
-    public Evento getEvento(Evento arbol);
+    public List<Evento> getEventos();
     
-    public void save(Evento arbol);
+    public Evento getEvento(Evento evento);
     
-    public void delete(Evento arbol);
+    public void save(Evento evento);
+    
+    public void delete(Evento evento);
 }

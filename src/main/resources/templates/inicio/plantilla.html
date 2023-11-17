@@ -65,15 +65,13 @@
                                     [[#{login.iniciaSesion}]]
                             </button>
                             <a>ㅤ</a>
-                            <button type="button" class="btn" style="background-color: #F26535 ; color: white; border-radius: 25px;"
-                                    data-bs-toggle="modal" data-bs-target="#">
-                                    [[#{sesion.opcionesTransporte}]]
-                            </button>
-                            <a>ㅤ</a>
-                            <button type="button" class="btn" style="background-color: gray; color: white; border-radius: 25px;"
-                                    data-bs-toggle="modal" data-bs-target="#">
-                                    [[#{sesion.eventos}]]
-                            </button>
+                            <a th:href="@{/transporte}" class="btn" style="background-color: #F26535; color: white; border-radius: 25px; width: 200px;">
+                                [[#{sesion.opcionesTransporte}]]
+                            </a>
+                             <a>ㅤ</a>
+                            <a th:href="@{/eventos}" class="btn" style="background-color: #F26535; color: white; border-radius: 25px; width: 200px;">
+                                [[#{sesion.eventos}]]
+                            </a>
                             <a>ㅤ</a>
                             <div class="dropdown">
                                 <button class="btn btn-secondary" style="background-color: gray; color: white; border-radius: 25px;" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
