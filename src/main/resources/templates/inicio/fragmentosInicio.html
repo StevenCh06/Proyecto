@@ -82,7 +82,7 @@
                                     <span th:text="${restbar.ubicacion}"></span>
                                 </p>
                             </div>
-                            <div class="text-center" style="position: absolute; bottom: -25px; left: 50%; transform: translateX(-50%);">
+                            <div sec:authorize="isAuthenticated()" class="text-center" style="position: absolute; bottom: -25px; left: 50%; transform: translateX(-50%);">
                                 <a th:href="@{/detalle/}+${restbar.idLocal}" class="btn" style="background-color: #000000; color: white; border-radius: 50px;">
                                     [[#{card.verMas}]]
                                 </a>

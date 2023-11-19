@@ -2,12 +2,19 @@
 package com.Proyecto;
 
 import java.util.Locale;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ResourceBundleMessageSource;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
@@ -47,6 +54,41 @@ public class ProjectConfig implements WebMvcConfigurer{
         messageSourse.setBasenames("messages");
         messageSourse.setDefaultEncoding("UTF-8");
         return messageSourse;
+    }
+    
+    /* Los siguiente métodos son para implementar el tema de seguridad dentro del proyecto */
+    @Override
+    public void addViewControllers(ViewControllerRegistry registry) {
+        registry.addViewController("/").setViewName("index");
+        registry.addViewController("/index").setViewName("index");
+    }
+    
+    @Autowired
+    private UserDetailsService userDetailsService;
+    
+    @Autowired
+    public void configurerGloal(AuthenticationManagerBuilder builder) throws Exception{
+        builder.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder());
+    }
+    
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http
+                .authorizeHttpRequests((request) -> request
+                .requestMatchers("/", "/index", "/errores/**",
+                        "/error", "/error/***", "/js/**", "/webjars/**"
+                ,"/css/**","/imagenes/**")
+                .permitAll()
+                .requestMatchers(
+                        "/eventos", "/transporte", "/index",
+                        "/enviar", "/reservar/**",
+                        "/guardar", "/detalle/**"
+                ).hasRole("USER")                
+                )
+                .formLogin((form) -> form
+                .loginPage("/").permitAll())
+                .logout((logout) -> logout.permitAll());
+        return http.build();
     }
     
 }
