@@ -82,7 +82,7 @@ public class ProjectConfig implements WebMvcConfigurer{
                 .requestMatchers(
                         "/eventos", "/transporte", "/index",
                         "/enviar", "/reservar/**",
-                        "/guardar", "/detalle/**"
+                        "/guardar", "/detalle/**", "/reservas/**", "/reservas/eliminar/**"
                 ).hasRole("USER")                
                 )
                 .formLogin((form) -> form

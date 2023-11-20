@@ -8,8 +8,12 @@ import com.Proyecto.service.ResenaService;
 import com.Proyecto.service.ReservaService;
 import com.Proyecto.service.RestBarService;
 import com.Proyecto.service.UsuarioService;
+import java.security.Principal;
 import java.util.Date;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -43,5 +47,27 @@ public class ReservaController {
         reservaService.save(reserva);
         
         return "redirect:/";
+    }
+    
+    @GetMapping("/reservas")
+    public String reservaHistorial(Usuario usuario, Model model) {
+//        List<Reserva> reservas = reservaService.getReservas();
+//        model.addAttribute("reservas", reservas);
+
+        // Obtener el usuario autenticado
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        
+        // Obtener las reservas del usuario autenticado
+        List<Reserva> reservas = reservaService.getReservaByUsuario();
+        
+        model.addAttribute("reservas", reservas);
+        
+        return "/reserva/historialReservas";
+    }
+    
+    @GetMapping("/reservas/eliminar/{idReserva}")
+    public String reservaEliminar(Reserva reserva) {
+        reservaService.delete(reserva);
+        return "redirect:/reservas";
     }
 }

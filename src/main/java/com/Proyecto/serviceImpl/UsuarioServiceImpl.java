@@ -41,6 +41,7 @@ public class UsuarioServiceImpl implements UsuarioService, UserDetailsService {
         // remover atributos de la sesion
         session.removeAttribute("usuarioImagen");
         session.setAttribute("usuarioImagen", usuario.getFotoPerfil()); 
+        session.setAttribute("idU", usuario.getIdUsuario());
         
         // transformar roles a GrantedAuthority
         var roles = new ArrayList<GrantedAuthority>();
