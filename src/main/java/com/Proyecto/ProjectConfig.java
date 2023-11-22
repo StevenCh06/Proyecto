@@ -69,23 +69,24 @@ public class ProjectConfig implements WebMvcConfigurer{
     private UserDetailsService userDetailsService;
     
     @Autowired
-    public void configurerGloal(AuthenticationManagerBuilder builder) throws Exception{
+    public void configureGlobal(AuthenticationManagerBuilder builder) throws Exception {
         builder.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder());
     }
-    
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests((request) -> request
-                .requestMatchers("/", "/index", "/errores/**",
-                        "/error", "/error/***", "/js/**", "/webjars/**"
-                ,"/css/**","/imagenes/**")
+                .requestMatchers("/", "/index", "/errores/**", "/error", "/error/***",
+                        "/js/**", "/webjars/**",
+                         "/css/**", "/imagenes/**")
                 .permitAll()
                 .requestMatchers(
                         "/eventos", "/transporte", "/index",
                         "/enviar", "/reservar/**",
-                        "/guardar", "/detalle/**", "/reservas/**", "/reservas/eliminar/**"
-                ).hasRole("USER")                
+                        "/guardar", "/detalle/**", "/reservas/**", "/reservas/eliminar/**",
+                        "/resenas"
+                ).hasRole("USER")
                 )
                 .formLogin((form) -> form
                 .loginPage("/").permitAll())
