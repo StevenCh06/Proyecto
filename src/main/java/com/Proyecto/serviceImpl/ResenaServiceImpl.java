@@ -44,6 +44,7 @@ public class ResenaServiceImpl implements ResenaService {
     public List<Resena> getResenasByRestBar(RestBar restbar) {
         return resenaDao.findByRestBar(restbar.getIdLocal());
     }
+    
 
     
 }

@@ -1,12 +1,16 @@
 package com.Proyecto.controller;
 
 import com.Proyecto.domain.Resena;
+import com.Proyecto.domain.Reserva;
 import com.Proyecto.domain.RestBar;
 import com.Proyecto.domain.Usuario;
 import com.Proyecto.service.ResenaService;
 import com.Proyecto.service.RestBarService;
 import com.Proyecto.service.UsuarioService;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,5 +37,29 @@ public class ResenaController {
         resenaService.save(resena);
         
         return "redirect:/";
+    }
+    @GetMapping("/resena/{idResena}")
+    public String resenaCargar(Resena resena,Reserva reserva,RestBar restbar, Model model) {                          
+        
+        resena = resenaService.getResena(resena);          
+        
+        model.addAttribute("resena", resena);
+        
+        return "/resena/resena";
+    }
+    
+    @GetMapping("/resenas")
+    public String resenas(RestBar Restbar, Model model) {
+
+
+        // Obtener el usuario autenticado
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        
+        // Obtener las resenas del local
+        List<Resena> resena = resenaService.getResenasByRestBar(Restbar);
+        
+        model.addAttribute("resenas", resena);
+        
+        return "/resenas/resena";
     }
 }
