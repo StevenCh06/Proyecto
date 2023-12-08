@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+    <head th:replace="~{sinCuenta/plantilla :: head}">
+        <title>EatAway</title>
+    </head>
+    <body>                    
+        
+        <section th:fragment="cuentaMenu">
+            <div id="details" class="contenedor">
+                <div class="col derecha">  
+                    <section th:replace="~{cuenta/fragmentos :: contenidoUsuario}"/>
+                    <div class="mb-3">
+                        <p class="nombreFuente">[[#{cuenta.titulo}]]</p>
+                    </div>
+                    
+                        <form th:action="@{/Cuenta}" th:object="${Cuenta}" method="POST" class="was-validated" enctype="multipart/form-data">                
+                            
+                            
+                            <div class="mb-3">
+                                <label for="nombre">[[#{cuenta.nombre}]]</label>
+                                <textarea placeholder="Nombre" type="text" class="form-control" name="Añade tu nombre" style="width: 500px;"></textarea>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="correo">[[#{cuenta.correo}]]</label>
+                                <textarea placeholder="Correo" type="text" class="form-control" name="Añade tu correo" style="width: 500px;"></textarea>
+                        
+                            </div>
+                       
+                            <div class="mb-3">
+                                 <label for="direccion">[[#{cuenta.direccion}]]</label>
+                                <textarea placeholder="Dirección" type="text" class="form-control" name="Añade tu dirección" style="width: 500px;"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                 <label for="presentacion">[[#{cuenta.presentacion}]]</label>
+                                <textarea placeholder="Presentacíon" type="text" class="form-control" name="Añade una presenttación de vos!" style="width: 500px;"></textarea>
+                            </div>
+                            <br>
+                                <div>
+                                    <button class="btn" type="submit" style="background-color: #F54D33; color: white; border-radius: 25px; width: 200px;">
+                                        [[#{accion.guadarCuenta}]]
+                                    </button>
+                                </div>
+                        </form>
+                </div>                                
+            </div>
+        </section>     
+
+    </body>
+</html>
+
