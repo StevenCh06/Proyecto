@@ -1,7 +1,6 @@
 package com.Proyecto.controller;
 
 import com.Proyecto.domain.Resena;
-import com.Proyecto.domain.Reserva;
 import com.Proyecto.domain.RestBar;
 import com.Proyecto.domain.Usuario;
 import com.Proyecto.service.ResenaService;
@@ -14,7 +13,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
@@ -29,6 +27,16 @@ public class ResenaController {
     @Autowired
     private UsuarioService usuarioService;    
     
+    @GetMapping("/resenar/{idLocal}")
+    public String resenaCargar(Resena resena,RestBar restbar, Model model) {                          
+        
+        restbar = restbarService.getRestBar(restbar);          
+        
+        model.addAttribute("restbar", restbar);
+        
+        return "/resena/resena";
+    }
+    
     @PostMapping("/enviar")
     public String resenaGuardar(Resena resena, RestBar restBar,Usuario usuario,Model model) {
                      
@@ -37,15 +45,6 @@ public class ResenaController {
         resenaService.save(resena);
         
         return "redirect:/";
-    }
-    @GetMapping("/resena/{idResena}")
-    public String resenaCargar(Resena resena,Reserva reserva,RestBar restbar, Model model) {                          
-        
-        resena = resenaService.getResena(resena);          
-        
-        model.addAttribute("resena", resena);
-        
-        return "/resena/resena";
     }
     
     @GetMapping("/resenas")
@@ -62,4 +61,5 @@ public class ResenaController {
         
         return "/resenas/resena";
     }
+    
 }
