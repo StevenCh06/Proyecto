@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+    <head th:replace="~{sinCuenta/plantilla :: head}">
+        <title>EatAway</title>
+    </head>
+    <body>  
+
+        <section th:fragment="centroAyuda">
+            <div id="details" class="contenedor">
+                <div class="col derecha"> 
+                    <div class="mb-3">
+                        <p class="nombreFuente">[[#{centro.titulo}]]</p>
+                    </div>
+                </div>
+            </div> 
+            <br>
+                <br> 
+            <div class="mb-3">
+                <p class="nombreFuente">[[#{centro.titulo1}]]</p>
+            </div>
+                    
+            <div style="text-align: left; width: 90%; margin: 7; color: #000000"> 
+
+                <p>Nos encargaremos de la cancelación rápidamente: si se trata de un cambio de planes,</p>
+                <p>dirígete al Historial de Reservas para cancelar la reservación, ¡y listo! No te preocupes.</p>
+            </div>
+            <br>
+                <br>   
+                    <div class="mb-3">
+                        <p class="nombreFuente">[[#{centro.titulo2}]]</p>
+                    </div>
+                    <div style="text-align: left; width: 90%; margin: 7;  color: #000000"> 
+
+                        <p>Si surge algo inesperado durante tu visita, te recomendamos que primero se lo </p>
+                        <p>indiques al anfitrión. Es probable que te ayuden a solucionarlo de inmediato. </p>
+                    </div>
+                    <br>
+                <br> 
+                    <div class="mb-3">
+                        <p class="nombreFuente">[[#{centro.titulo3}]]</p>
+                    </div>
+                    <div style="text-align: left; width: 90%; margin: 7;  color: #000000"> 
+
+                        <p>No te olvides de avisarle al anfitrión de tu llegada al lugar; de este modo el </p>
+                        <p>anfitrión se encargara de asignarte una mesa.</p>
+                    </div>
+
+                    </section>
+
+
+
+                    </html>

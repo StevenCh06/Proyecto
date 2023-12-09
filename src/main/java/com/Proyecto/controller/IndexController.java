@@ -19,5 +19,10 @@ public class IndexController {
         model.addAttribute("attribute", "value");
         return "/transporte/transporte";
     }
+    @GetMapping("/centroAyuda")
+    public String centroAyuda(Model model) {
+        model.addAttribute("attribute", "value");
+        return "/centroAyuda/centroAyuda";
+    }
     
 }

@@ -21,6 +21,18 @@
                                     <p style="display: inline-block;"th:text="${resena.idResena}"></p>
                             </div>
                         </form>
+                        <form th:action="@{/resenas}" th:object="${resena}" method="POST" class="was-validated" enctype="multipart/form-data">
+                            <div th:each="resena, iterStat : ${resenas}" class="resena-container">                        
+                                    <h6 style="display: inline-block; margin-right: 10px;">[[#{resena.calificacion}]]</h6>
+                                    <p style="display: inline-block;"th:text="${resena.calificacion}"></p>
+                            </div>
+                        </form>
+                        <form th:action="@{/resenas}" th:object="${resena}" method="POST" class="was-validated" enctype="multipart/form-data">
+                            <div th:each="resena, iterStat : ${resenas}" class="resena-container">                        
+                                    <h6 style="display: inline-block; margin-right: 10px;">[[#{resena.comentario}]]</h6>
+                                    <p style="display: inline-block;"th:text="${resena.comentario}"></p>
+                            </div>
+                        </form>
                         
                             <!-- Botón de Cancelar -->
                             

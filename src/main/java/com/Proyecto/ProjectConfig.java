@@ -85,7 +85,7 @@ public class ProjectConfig implements WebMvcConfigurer{
                         "/eventos", "/transporte", "/index",
                         "/enviar", "/reservar/**","/resenas/resena",
                         "/guardar", "/detalle/**", "/reservas/**", "/reservas/eliminar/**",
-                        "/resenas/**","/cuenta/**","/error", "/error/***"
+                        "/resenas/**","/cuenta/**","/centroAyuda","/error", "/error/***"
                 ).hasRole("USER")
                 )
                 .formLogin((form) -> form
