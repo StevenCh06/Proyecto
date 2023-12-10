@@ -62,7 +62,7 @@ public class ProjectConfig implements WebMvcConfigurer{
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/").setViewName("index");
-        registry.addViewController("/index").setViewName("index");
+        registry.addViewController("/index").setViewName("index");        
     }
     
     @Autowired
@@ -78,7 +78,7 @@ public class ProjectConfig implements WebMvcConfigurer{
         http
                 .authorizeHttpRequests((request) -> request
                 .requestMatchers("/", "/index", "/errores/**", "/error", "/error/***",
-                        "/js/**", "/webjars/**",
+                        "/js/**", "/webjars/**","/registro/**",
                          "/css/**", "/imagenes/**")
                 .permitAll()
                 .requestMatchers(
