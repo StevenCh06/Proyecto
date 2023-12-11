@@ -9,11 +9,15 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import jakarta.servlet.http.HttpSession;
 
 @Service
 public class ResenaServiceImpl implements ResenaService {
     @Autowired
     private ResenaDao resenaDao;
+    
+    @Autowired
+    private HttpSession session;
     
     @Override
     @Transactional(readOnly = true)
@@ -44,7 +48,13 @@ public class ResenaServiceImpl implements ResenaService {
     public List<Resena> getResenasByRestBar(RestBar restbar) {
         return resenaDao.findByRestBar(restbar.getIdLocal());
     }
-    
+
+    @Override
+    public List<Resena> getResenaByUsuario() {
+        Long userId = (Long) session.getAttribute("idU");
+        return resenaDao.findByUsuario(userId);
+    }
 
     
 }
+

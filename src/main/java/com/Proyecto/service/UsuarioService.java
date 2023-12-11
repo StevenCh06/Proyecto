@@ -1,24 +1,14 @@
+
 package com.Proyecto.service;
 
 import com.Proyecto.domain.Usuario;
-import java.util.List;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+
 
 public interface UsuarioService {
-
-    public List<Usuario> getUsuarios();
-
-    public Usuario getUsuario(Usuario usuario);
-
+    
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException;
     public Usuario getUsuarioPorUsername(String username);
-
-    public Usuario getUsuarioPorUsernameYPassword(String username, String password);
-
-    public Usuario getUsuarioPorUsernameOCorreo(String username, String correo);
-
-    public boolean existeUsuarioPorUsernameOCorreo(String username, String correo);
-
-    public void save(Usuario usuario, boolean crearRolUser);
-
-    public void delete(Usuario usuario);
-
+    
 }

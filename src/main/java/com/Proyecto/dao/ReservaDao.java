@@ -12,5 +12,4 @@ public interface ReservaDao  extends JpaRepository<Reserva,Long> {
     
     @Query("SELECT r FROM Reserva r WHERE r.usuario.idUsuario = :idUsuario")
     List<Reserva> findByUsuario(@Param("idUsuario") Long idUsuario);
-//      List<Reserva> findByUsuario(Usuario usuario);
 }

@@ -1,8 +1,6 @@
 
 package com.Proyecto;
 
-// TEST COMMIT
-
 import java.util.Locale;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
@@ -62,31 +60,31 @@ public class ProjectConfig implements WebMvcConfigurer{
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/").setViewName("index");
-        registry.addViewController("/index").setViewName("index");        
+        registry.addViewController("/index").setViewName("index");
     }
     
     @Autowired
     private UserDetailsService userDetailsService;
     
     @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder builder) throws Exception {
+    public void configurerGloal(AuthenticationManagerBuilder builder) throws Exception{
         builder.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder());
     }
-
+    
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests((request) -> request
-                .requestMatchers("/", "/index", "/errores/**", "/error", "/error/***",
-                        "/js/**", "/webjars/**","/registro/**",
-                         "/css/**", "/imagenes/**")
+                .requestMatchers("/", "/index", "/errores/**",
+                        "/error", "/error/***", "/js/**", "/webjars/**"
+                ,"/css/**","/imagenes/**")
                 .permitAll()
                 .requestMatchers(
                         "/eventos", "/transporte", "/index",
                         "/enviar", "/reservar/**","/resenas/resena",
                         "/guardar", "/detalle/**", "/reservas/**", "/reservas/eliminar/**",
                         "/resenas/**","/cuenta/**","/centroAyuda","/error", "/error/***"
-                ).hasRole("USER")
+                ).hasRole("USER")                
                 )
                 .formLogin((form) -> form
                 .loginPage("/").permitAll())

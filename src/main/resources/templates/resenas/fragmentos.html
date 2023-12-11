@@ -9,44 +9,45 @@
     <body>
         
         <section th:fragment="resenasUsuario">
-            <div id="details" class="contenedor">
-                <div class="col derecha"> 
-                    <div class="mb-3">
-                        <p class="nombreFuente">[[#{resena.historial}]]</p>
-                    </div>
-                    <hr class="my-4">
-                        <form th:action="@{/resenas}" th:object="${resena}" method="POST" class="was-validated" enctype="multipart/form-data">
-                            <div th:each="resena, iterStat : ${resenas}" class="resena-container">                        
-                                    <h6 style="display: inline-block; margin-right: 10px;">[[#{resena.idResena}]]</h6>
-                                    <p style="display: inline-block;"th:text="${resena.idResena}"></p>
+    <div id="details" class="contenedor">
+        <div class="col derecha"> 
+            <div class="mb-3">
+                <p class="nombreFuente" th:text="#{resena.historial}"></p>
+            </div>
+            <h6 style="display: inline-block; margin-right: 10px;">[[#{resena.total}]]</h6>
+            <p style="display: inline-block;" th:text="${totalResenas}"></p>
+            <hr class="my-4">            
+            <div th:each="resena, iterStat : ${resenas}" class="evento-container">                        
+                <div class="detalles-evento">                          
+                    <div class="detalles-adicionales">
+<!--                        <div class="my-2">
+                            <p style="display: inline-block;" th:text="${restbar.nombre}"></p>
+                        </div>-->
+                        <div class="my-2">
+                            <h6 style="display: inline-block; margin-right: 10px;">[[#{resena.calificacion}]]</h6>
+                            <p style="display: inline-block;" th:text="${resena.calificacion}"></p>
+                        </div>
+                        <div class="my-2">
+                            <h6 style="display: inline-block; margin-right: 10px;">[[#{resena.comentario}]]</h6>
+                            <p style="display: inline-block;" th:text="${resena.comentario}"></p>
+                        </div>
+                        <!-- Botón de Cancelar -->
+                            <div class=" ml-auto">
+                                <a th:href="@{/resenas/eliminar/}+${resena.idResena}">
+                                <button type="button" class="btn" style="background-color: black; color: white; border-radius: 25px; width: 200px;" th:text="#{resena.eliminar}"></button>
+                                </a>
                             </div>
-                        </form>
-                        <form th:action="@{/resenas}" th:object="${resena}" method="POST" class="was-validated" enctype="multipart/form-data">
-                            <div th:each="resena, iterStat : ${resenas}" class="resena-container">                        
-                                    <h6 style="display: inline-block; margin-right: 10px;">[[#{resena.calificacion}]]</h6>
-                                    <p style="display: inline-block;"th:text="${resena.calificacion}"></p>
-                            </div>
-                        </form>
-                        <form th:action="@{/resenas}" th:object="${resena}" method="POST" class="was-validated" enctype="multipart/form-data">
-                            <div th:each="resena, iterStat : ${resenas}" class="resena-container">                        
-                                    <h6 style="display: inline-block; margin-right: 10px;">[[#{resena.comentario}]]</h6>
-                                    <p style="display: inline-block;"th:text="${resena.comentario}"></p>
-                            </div>
-                        </form>
-                        
-                            <!-- Botón de Cancelar -->
-                            
                             <hr class="my-4">
+                    </div>
                 </div>
             </div>
-            
-              
-                <div class="col izquierda">
-                    <p style="text-aling: center;">ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ
-                    </p>
-                </div>
-            </div>
-        </section>
+        </div>
+        <div class="col izquierda">
+            <p style="text-align: center;">.</p>
+        </div>
+    </div>
+</section>
+
     </body>
 
     

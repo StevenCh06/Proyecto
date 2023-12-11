@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 
+<!-- contiene los fragmentos de la vista que muestra la informacion detallada de los locales -->
+
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
@@ -21,11 +23,11 @@
                         </div>
                         <form th:action="@{/reservar}" th:object="${reserva}" method="POST" class="was-validated" enctype="multipart/form-data">                
                             <div class="mb-3">
-                                <!--esto esta solo como prueba, necesita otra logica-->
+                                <!---->
                                 <input hidden name="activo" value="1"/>
                                 <input hidden name="lugar" th:value="${restbar.nombre}"/>
                                 <input hidden name="idLocal" th:value="${restbar.idLocal}"/>
-                                <input hidden name="idUsuario" th:value="3"/>
+                                <input hidden name="idUsuario" th:value="${session.idU}"/>
                                 <!--------------------------------------------------------------->
                             </div>
                             <div class="mb-3">

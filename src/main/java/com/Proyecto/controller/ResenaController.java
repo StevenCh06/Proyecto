@@ -5,11 +5,8 @@ import com.Proyecto.domain.RestBar;
 import com.Proyecto.domain.Usuario;
 import com.Proyecto.service.ResenaService;
 import com.Proyecto.service.RestBarService;
-import com.Proyecto.service.UsuarioService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,20 +19,8 @@ public class ResenaController {
     private ResenaService resenaService;
     
     @Autowired
-    private RestBarService restbarService;
-    
-    @Autowired
-    private UsuarioService usuarioService;    
-    
-    @GetMapping("/resenar/{idLocal}")
-    public String resenaCargar(Resena resena,RestBar restbar, Model model) {                          
-        
-        restbar = restbarService.getRestBar(restbar);          
-        
-        model.addAttribute("restbar", restbar);
-        
-        return "/resena/resena";
-    }
+    private RestBarService restbarService; 
+     
     
     @PostMapping("/enviar")
     public String resenaGuardar(Resena resena, RestBar restBar,Usuario usuario,Model model) {
@@ -47,19 +32,31 @@ public class ResenaController {
         return "redirect:/";
     }
     
-    @GetMapping("/resenas")
-    public String resenas(RestBar Restbar, Model model) {
-
-
-        // Obtener el usuario autenticado
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+    @GetMapping("/resenar/{idLocal}")
+    public String resenaCargar(Resena resena,RestBar restbar, Model model) {                          
         
-        // Obtener las resenas del local
-        List<Resena> resena = resenaService.getResenasByRestBar(Restbar);
+        restbar = restbarService.getRestBar(restbar);          
         
-        model.addAttribute("resenas", resena);
+        model.addAttribute("restbar", restbar);
         
-        return "/resenas/resena";
+        return "/resena/resena";
     }
     
+    @GetMapping("/resenas")
+    public String resenas(RestBar restbar, Model model) {
+        
+        // Obtener las reservas del usuario autenticado
+        List<Resena> resena = resenaService.getResenaByUsuario();
+        
+        model.addAttribute("resenas", resena);
+        model.addAttribute("totalResenas", resena.size());
+        
+        return "/resenas/historialResenas";
+    }
+    
+    @GetMapping("/resenas/eliminar/{idResena}")
+    public String reservaEliminar(Resena resena) {
+        resenaService.delete(resena);
+        return "redirect:/resenas";
+    }
 }
