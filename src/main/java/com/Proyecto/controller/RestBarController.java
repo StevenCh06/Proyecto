@@ -4,6 +4,7 @@ import com.Proyecto.domain.Resena;
 import com.Proyecto.service.RestBarService;
 import com.Proyecto.service.ResenaService;
 import com.Proyecto.domain.RestBar;
+import com.Proyecto.domain.Usuario;
 import com.Proyecto.service.UsuarioService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,14 +42,14 @@ public class RestBarController {
     }
 
     @GetMapping("/detalle/{idLocal}")
-    public String restbarDetalle(RestBar restbar, Model model) {    
+    public String restbarDetalle(RestBar restbar,Usuario usuario, Model model) {    
         
         restbar = restbarService.getRestBar(restbar);
         
         List<Resena> resenas = resenaService.getResenasByRestBar(restbar);
         
         var numresenas = restbarService.getRestBar(restbar).getResenas();
-        
+    
         model.addAttribute("restbar", restbar);
         model.addAttribute("totalResenas", numresenas.size());
         model.addAttribute("listadoResena", resenas);

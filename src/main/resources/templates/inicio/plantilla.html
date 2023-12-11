@@ -56,9 +56,8 @@
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <ul></ul>
                         <ul class="navbar-nav">
-                            <button sec:authorize="!isAuthenticated()" type="button" class="btn" style="background-color: #F26535 ; color: white; border-radius: 25px;"
-                                    data-bs-toggle="modal" data-bs-target="#nuevaCuenta">
-                                    [[#{login.nuevaCuenta}]]
+                            <button sec:authorize="!isAuthenticated()" type="button" class="btn" style="background-color: #F26535 ; color: white; border-radius: 25px;">
+                                <a th:href="@{/registro/nuevo}" class="btn text-white">[[#{login.nuevaCuenta}]]</a>
                             </button>
                             <a>ㅤ</a>
                             <button sec:authorize="!isAuthenticated()" type="button" class="btn" style="background-color: gray; color: white; border-radius: 25px;"
