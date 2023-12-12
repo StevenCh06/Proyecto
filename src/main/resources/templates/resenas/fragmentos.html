@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
@@ -7,47 +6,44 @@
         <title>EatAway</title>
     </head>
     <body>
-        
         <section th:fragment="resenasUsuario">
-    <div id="details" class="contenedor">
-        <div class="col derecha"> 
-            <div class="mb-3">
-                <p class="nombreFuente" th:text="#{resena.historial}"></p>
-            </div>
-            <h6 style="display: inline-block; margin-right: 10px;">[[#{resena.total}]]</h6>
-            <p style="display: inline-block;" th:text="${totalResenas}"></p>
-            <hr class="my-4">            
-            <div th:each="resena, iterStat : ${resenas}" class="evento-container">                        
-                <div class="detalles-evento">                          
-                    <div class="detalles-adicionales">
-<!--                        <div class="my-2">
-                            <p style="display: inline-block;" th:text="${restbar.nombre}"></p>
-                        </div>-->
-                        <div class="my-2">
-                            <h6 style="display: inline-block; margin-right: 10px;">[[#{resena.calificacion}]]</h6>
-                            <p style="display: inline-block;" th:text="${resena.calificacion}"></p>
-                        </div>
-                        <div class="my-2">
-                            <h6 style="display: inline-block; margin-right: 10px;">[[#{resena.comentario}]]</h6>
-                            <p style="display: inline-block;" th:text="${resena.comentario}"></p>
-                        </div>
-                        <!-- Botón de Cancelar -->
-                            <div class=" ml-auto">
-                                <a th:href="@{/resenas/eliminar/}+${resena.idResena}">
-                                <button type="button" class="btn" style="background-color: black; color: white; border-radius: 25px; width: 200px;" th:text="#{resena.eliminar}"></button>
-                                </a>
-                            </div>
-                            <hr class="my-4">
+            <div id="details" class="contenedor">
+                <div class="col derecha"> 
+                    <div class="mb-3">
+                        <p class="nombreFuente" th:text="#{resena.historial}"></p>
                     </div>
+                    <h6 style="display: inline-block; margin-right: 10px;">[[#{resena.total}]]</h6>
+                    <p style="display: inline-block;" th:text="${totalResenas}"></p>
+                    <hr class="my-4">            
+                        <div th:each="resena, iterStat : ${resenas}" class="evento-container">                        
+                            <div class="detalles-evento">                          
+                                <div class="detalles-adicionales">
+                                    <!--                        <div class="my-2">
+                                                                <p style="display: inline-block;" th:text="${restbar.nombre}"></p>
+                                                            </div>-->
+                                    <div class="my-2">
+                                        <h6 style="display: inline-block; margin-right: 10px;">[[#{resena.calificacion}]]</h6>
+                                        <p style="display: inline-block;" th:text="${resena.calificacion}"></p>
+                                    </div>
+                                    <div class="my-2">
+                                        <h6 style="display: inline-block; margin-right: 10px;">[[#{resena.comentario}]]</h6>
+                                        <p style="display: inline-block;" th:text="${resena.comentario}"></p>
+                                    </div>
+                                    <!-- Botón de Cancelar -->
+                                    <div class=" ml-auto">
+                                        <a th:href="@{/resenas/eliminar/}+${resena.idResena}">
+                                            <button type="button" class="btn" style="background-color: black; color: white; border-radius: 25px; width: 200px;" th:text="#{resena.eliminar}"></button>
+                                        </a>
+                                    </div>
+                                    <hr class="my-4">
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                <div class="col izquierda">
+                    <p style="text-align: center;"><a>ㅤ</a></p>
                 </div>
             </div>
-        </div>
-        <div class="col izquierda">
-            <p style="text-align: center;">.</p>
-        </div>
-    </div>
-</section>
+        </section>
+</body>
 
-    </body>
-
-    

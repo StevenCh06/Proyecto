@@ -34,6 +34,8 @@ public class UsuarioDetailsServiceImpl implements UsuarioDetailsService, UserDet
             throw new UsernameNotFoundException(username);
         }
 
+        session.removeAttribute("usuarioImagen");
+        session.setAttribute("usuarioImagen", usuario.getFotoPerfil()); 
         session.removeAttribute("id_usuario");
         session.setAttribute("id_usuario", usuario.getIdUsuario());
         session.setAttribute("idU", usuario.getIdUsuario());

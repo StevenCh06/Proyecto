@@ -2,6 +2,7 @@
 package com.Proyecto.controller;
 
 import com.Proyecto.domain.Usuario;
+import com.Proyecto.service.FirebaseStorageService;
 import com.Proyecto.service.RegistroService;
 import com.Proyecto.service.UsuarioService;
 import jakarta.mail.MessagingException;
@@ -26,6 +27,9 @@ public class RegistroController {
     
     @Autowired
     private UsuarioService usuarioService;
+    
+    @Autowired
+    private FirebaseStorageService firebaseStorageService;
 
     @GetMapping("/nuevo")
     public String nuevo(Model model, Usuario usuario) {
@@ -66,13 +70,13 @@ public class RegistroController {
 
         // Obtiene el usuario actualizado con el ID asignado
         Usuario usuarioConId = usuarioService.getUsuarioPorUsername(usuario.getUsername());
-
+        
         // Luego, asigna el rol utilizando el ID del usuario
         if (usuarioConId != null) {
             // crear el rol
             usuarioService.save(usuario, true);
         }
-
+        
         return "redirect:/";
     }
 

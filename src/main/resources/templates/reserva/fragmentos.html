@@ -27,7 +27,7 @@
                                 <input hidden name="activo" value="1"/>
                                 <input hidden name="lugar" th:value="${restbar.nombre}"/>
                                 <input hidden name="idLocal" th:value="${restbar.idLocal}"/>
-                                <input hidden name="idUsuario" th:value="${session.idU}"/>
+                                <input hidden name="idUsuario" th:value="${#ctx.session.idU}"/>
                                 <!--------------------------------------------------------------->
                             </div>
                             <div class="mb-3">

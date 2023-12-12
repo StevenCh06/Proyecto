@@ -14,4 +14,6 @@ public interface RestBarService {
     public void save(RestBar rest);
     
     public void delete(RestBar rest);
+    
+    public List<RestBar> obtenerLocalesFiltrados(String tipos);
 }

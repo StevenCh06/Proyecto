@@ -80,7 +80,7 @@ public class ProjectConfig implements WebMvcConfigurer{
                 ,"/css/**","/imagenes/**", "/registro/**")
                 .permitAll()
                 .requestMatchers(
-                        "/eventos", "/transporte", "/index",
+                        "/eventos", "/transporte", "/index","/usuario/**",
                         "/enviar", "/reservar/**","/resenas/resena",
                         "/guardar", "/detalle/**", "/reservas/**", "/reservas/eliminar/**",
                         "/resenas/**","/cuenta/**","/centroAyuda","/error", "/error/***"

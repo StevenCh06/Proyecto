@@ -149,11 +149,21 @@ body {
     margin-top: -10px;
 }
 
+fieldset {
+    margin-bottom: 20px;
+}
 
+legend {
+    font-size: 1.2em;
+    font-weight: bold;
+}
 
-
-
-
+.foto {
+    width: 35px; /* Ajusta el ancho según tus necesidades */
+    height: 35px; /* Ajusta la altura según tus necesidades */
+    border-radius: 50%;
+    overflow: hidden;
+}
 /*++++++++++++++++++++++++*/
 /*para los elemntos de tipo id (especificos)*/
 /*#encabezado{

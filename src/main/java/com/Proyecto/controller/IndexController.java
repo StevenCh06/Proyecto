@@ -1,9 +1,12 @@
 package com.Proyecto.controller;
 
+import com.Proyecto.service.RestBarService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class IndexController {
@@ -25,4 +28,5 @@ public class IndexController {
         model.addAttribute("attribute", "value");
         return "/centroAyuda/centroAyuda";
     }
+
 }

@@ -17,12 +17,12 @@
                 <input type="text" placeholder="Buscar..." style="border-radius: 10px; padding: 2px; width: 100%;">
                 <br>
                 <!-- Filtro 1 -->
-                <h6>[[#{filtro.tipo}]]</h6>                
+                <h6>[[#{filtro.tipo}]]</h6>
                 <label>
-                    <input type="checkbox" name="tipoEstablecimiento" value="bares"> [[#{filtro.bares}]]
+                    <input type="checkbox" name="tipoEstablecimiento" value="bares" onchange="cambiarFiltro()"> [[#{filtro.bares}]]
                 </label>
                 <label>
-                    <input type="checkbox" name="tipoEstablecimiento" value="restaurantes"> [[#{filtro.restaurante}]]
+                    <input type="checkbox" name="tipoEstablecimiento" value="restaurantes" onchange="cambiarFiltro()"> [[#{filtro.restaurante}]]
                 </label>
             </aside>            
         </section>
@@ -30,6 +30,7 @@
         <!-- Esto contiene la seccion lateral derecha donde estan los cards con la info de los locales -->
         <section th:fragment="cardsLocal">
             <section id="contenido">
+                <div id="cardsContainer">
                 <div class="row">
                     <div th:each="restbar : ${restbares}" class="col-md-4 mb-3">
                         <div class="card rounded mb-4" style="max-width: 18rem;">
@@ -51,6 +52,7 @@
                         </div>
                     </div>                    
                 </div>
+            </div>
             </section>
         </section>
 
